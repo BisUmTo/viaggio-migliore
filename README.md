@@ -6,7 +6,7 @@ Gioca: https://bisumto.github.io/viaggio-migliore/
 Apri `index.html` nel browser: nessuna installazione o account. Tutti gli asset e i font sono locali, quindi il gioco funziona anche offline dopo aver scaricato la cartella completa. Per GitHub Pages: radice del branch `main`.
 
 ## I viaggi
-Italia, Europa e Terre di Lumen, un mondo fantastico originale. Ogni mappa ha otto tappe. Le tre sfide didattiche originali (Esplorazione, Scambio, Sfida) mantengono coordinate e soluzioni: restano coerenti con guida e slide della lezione del 26 novembre 2026.
+Italia, Europa e Terre di Lumen, un mondo fantastico originale. Italia e Lumen hanno otto tappe; Europa ne ha dieci, con Francoforte e Zurigo al centro. I tentativi della precedente Europa a otto città restano nel taccuino, distinti dalla nuova versione. Le tre sfide didattiche originali (Esplorazione, Scambio, Sfida) mantengono coordinate e soluzioni: restano coerenti con guida e slide della lezione del 26 novembre 2026.
 
 Si parte da A, si visita ogni città una volta e si torna automaticamente ad A. Le distanze sono euclidee, in unità della mappa. Sulle carte geografiche si usa la proiezione indicata nei crediti: **non sono chilometri né tragitti stradali**. Sulla carta fantasy rilievi e fiumi sono ambientazione, non ostacoli.
 

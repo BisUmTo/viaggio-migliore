@@ -132,7 +132,9 @@
       "Berlino",
       "Vienna",
       "Praga",
-      "Amsterdam"
+      "Amsterdam",
+      "Francoforte",
+      "Zurigo"
     ],
     "coordinates": [
       {
@@ -190,6 +192,20 @@
         "latitude": 52.3676,
         "x": 291.804,
         "y": 172.648
+      },
+      {
+        "name": "Francoforte",
+        "longitude": 8.6821,
+        "latitude": 50.1109,
+        "x": 342.363,
+        "y": 217.782
+      },
+      {
+        "name": "Zurigo",
+        "longitude": 8.5417,
+        "latitude": 47.3769,
+        "x": 340.484,
+        "y": 272.462
       }
     ],
     "points": [
@@ -224,6 +240,14 @@
       [
         36.3608,
         32.5296
+      ],
+      [
+        46.4726,
+        41.5564
+      ],
+      [
+        46.0968,
+        52.4924
       ]
     ],
     "projection": {

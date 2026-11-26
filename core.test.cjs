@@ -56,3 +56,17 @@ assert(validTour(trap.points,threeOptWitness));assert(length(trap.points,threeOp
 const edges=r=>new Set(r.map((a,i)=>[a,r[(i+1)%r.length]].sort((a,b)=>a-b).join('-')));
 assert.equal([...edges(trap.baseline)].filter(e=>!edges(threeOptWitness).has(e)).length,3);
 console.log('PASS: a three-edge change refutes the local certificate (279.2 < 290.5).');
+// Eight-city attempts must survive the Europe expansion without entering its leaderboard.
+const {attemptMap}=require('./core.js');
+const europe=maps.find(m=>m.id==='europa');
+const historical={map:'europa',route:[0,5,6,4,7,3,1,2],strategy:'Giro esterno'};
+const historicalMap=attemptMap(historical);
+assert(validTour(historicalMap.points,historical.route));
+assert(!validTour(europe.points,historical.route));
+assert(validDraft(europe.points,historical.route));
+assert.equal(historicalMap.names.length,8);
+assert(historicalMap.name.includes('8 città'));
+assert(Math.abs(length(historicalMap.points,historical.route)-176.90958132412683)<1e-6);
+assert.equal(attemptMap({map:'europa',route:solve(europe.points).route}),europe);
+assert.equal(attemptMap({map:'scambio',route:solve(maps[1].points).route}),maps[1]);
+console.log('PASS: historical Europe attempts keep their original distance and remain separate from ten-city tours.');
