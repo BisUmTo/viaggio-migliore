@@ -16,7 +16,7 @@ Si parte da A, si visita ogni città una volta e si torna automaticamente ad A. 
 - Confrontare con l’ottimo quando il docente dà il via.
 - Usare Sfida per cercare un controesempio alla regola della città più vicina.
 
-Note, giri correnti per ogni mappa e ultimi 20 tentativi restano in localStorage. Il Taccuino conserva la strategia di ogni tentativo e distingue il lavoro precedente/successivo alla visualizzazione dell’ottimo. Scaricare la scheda per consegnarla; il testo completo è anche disponibile da copiare dopo il comando di esportazione. Nessun dato del gruppo viene inviato dall’app; l’hosting riceve le normali richieste HTTP.
+Note, giri correnti per ogni mappa e ultimi 100 tentativi restano in localStorage. Il Taccuino conserva la strategia di ogni tentativo e distingue il lavoro precedente/successivo alla visualizzazione dell’ottimo. Scaricare la scheda per consegnarla; il testo completo è anche disponibile da copiare dopo il comando di esportazione. Nessun dato del gruppo viene inviato dall’app; l’hosting riceve le normali richieste HTTP.
 
 ## Accessibilità e confronto
 Mouse, tastiera (Tab + Invio/Spazio), selezione da elenco su schermi piccoli. Il confronto è disponibile dopo un giro completo e una conferma, non è un controllo di accesso. Il docente regola quando aprirlo. Il solver esatto è Held–Karp e arrotonda soltanto i valori visualizzati.
@@ -26,3 +26,9 @@ Mouse, tastiera (Tab + Invio/Spazio), selezione da elenco su schermi piccoli. Il
 
 ## Crediti
 Ispirazione didattica: [TSP della TU München](https://algorithms.discrete.ma.tum.de/graph-games/tsp-game/index_en.html). Nessun codice o asset TUM copiato. Interfaccia originale, direzione da atlante editoriale. Dati geografici Natural Earth in pubblico dominio; font con licenza SIL OFL; illustrazione fantasy originale generata con ImageGen. Dettagli in [assets/ATTRIBUTION.md](assets/ATTRIBUTION.md).
+
+## Sei sfide avanzate
+
+In un gruppo separato dell’atlante: L’ultimo salto (greedy), Senza incroci (ordine visivo insufficiente), Gemelli prima/dopo (una sola città si sposta), Il certificato sospetto (ottimo locale 2-opt non globale), Quattordici tappe (ricerca a tempo). Ogni consegna include due indizi facoltativi e dati copiabili; quattro mappe offrono un giro iniziale da battere. La sfida sul certificato permette di verificare anche risposte AI, senza affermare che un modello specifico fallisca.
+
+`challenges.js` aggiunge il catalogo senza modificare le sei mappe precedenti. I test confrontano le istanze grandi anche con `exact-check.cjs`, un verificatore indipendente branch-and-bound con limite inferiore basato su MST. Tutte le proprietà didattiche dichiarate hanno controlli automatici, incluse le mosse 2-opt e il cambio di ottimo tra i gemelli.
