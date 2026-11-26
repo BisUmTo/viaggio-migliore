@@ -1,0 +1,244 @@
+[
+  {
+    "id": "italia",
+    "name": "Grand tour d’Italia",
+    "background": "assets/italia.svg",
+    "names": [
+      "Bolzano",
+      "Milano",
+      "Torino",
+      "Venezia",
+      "Firenze",
+      "Roma",
+      "Napoli",
+      "Palermo"
+    ],
+    "coordinates": [
+      {
+        "name": "Bolzano",
+        "longitude": 11.3548,
+        "latitude": 46.4983,
+        "x": 328.331,
+        "y": 75.447
+      },
+      {
+        "name": "Milano",
+        "longitude": 9.19,
+        "latitude": 45.4642,
+        "x": 268.466,
+        "y": 113.63
+      },
+      {
+        "name": "Torino",
+        "longitude": 7.6869,
+        "latitude": 45.0703,
+        "x": 226.9,
+        "y": 128.174
+      },
+      {
+        "name": "Venezia",
+        "longitude": 12.3155,
+        "latitude": 45.4408,
+        "x": 354.898,
+        "y": 114.494
+      },
+      {
+        "name": "Firenze",
+        "longitude": 11.2558,
+        "latitude": 43.7696,
+        "x": 325.593,
+        "y": 176.199
+      },
+      {
+        "name": "Roma",
+        "longitude": 12.4964,
+        "latitude": 41.9028,
+        "x": 359.9,
+        "y": 245.127
+      },
+      {
+        "name": "Napoli",
+        "longitude": 14.2681,
+        "latitude": 40.8518,
+        "x": 408.895,
+        "y": 283.934
+      },
+      {
+        "name": "Palermo",
+        "longitude": 13.3615,
+        "latitude": 38.1157,
+        "x": 383.824,
+        "y": 384.959
+      }
+    ],
+    "points": [
+      [
+        43.6662,
+        13.0894
+      ],
+      [
+        31.6932,
+        20.726
+      ],
+      [
+        23.38,
+        23.6348
+      ],
+      [
+        48.9796,
+        20.8988
+      ],
+      [
+        43.1186,
+        33.2398
+      ],
+      [
+        49.98,
+        47.0254
+      ],
+      [
+        59.779,
+        54.7868
+      ],
+      [
+        54.7648,
+        74.9918
+      ]
+    ],
+    "projection": {
+      "type": "equirectangular",
+      "referenceLatitude": 41.5,
+      "bbox": [
+        5,
+        35,
+        20,
+        48
+      ],
+      "scale": 36.92307692307692,
+      "offsetX": 14.328128866614463,
+      "offsetY": 1792.3076923076922
+    },
+    "projectionnote": "Distanze in unità della mappa proiettata, in linea retta: non sono chilometri né percorsi stradali."
+  },
+  {
+    "id": "europa",
+    "name": "Attraverso l’Europa",
+    "background": "assets/europa.svg",
+    "names": [
+      "Roma",
+      "Parigi",
+      "Madrid",
+      "Londra",
+      "Berlino",
+      "Vienna",
+      "Praga",
+      "Amsterdam"
+    ],
+    "coordinates": [
+      {
+        "name": "Roma",
+        "longitude": 12.4964,
+        "latitude": 41.9028,
+        "x": 393.408,
+        "y": 381.944
+      },
+      {
+        "name": "Parigi",
+        "longitude": 2.3522,
+        "latitude": 48.8566,
+        "x": 257.652,
+        "y": 242.868
+      },
+      {
+        "name": "Madrid",
+        "longitude": -3.7038,
+        "latitude": 40.4168,
+        "x": 176.607,
+        "y": 411.664
+      },
+      {
+        "name": "Londra",
+        "longitude": -0.1276,
+        "latitude": 51.5072,
+        "x": 224.466,
+        "y": 189.856
+      },
+      {
+        "name": "Berlino",
+        "longitude": 13.405,
+        "latitude": 52.52,
+        "x": 405.568,
+        "y": 169.6
+      },
+      {
+        "name": "Vienna",
+        "longitude": 16.3738,
+        "latitude": 48.2082,
+        "x": 445.298,
+        "y": 255.836
+      },
+      {
+        "name": "Praga",
+        "longitude": 14.4378,
+        "latitude": 50.0755,
+        "x": 419.389,
+        "y": 218.49
+      },
+      {
+        "name": "Amsterdam",
+        "longitude": 4.9041,
+        "latitude": 52.3676,
+        "x": 291.804,
+        "y": 172.648
+      }
+    ],
+    "points": [
+      [
+        56.6816,
+        74.3888
+      ],
+      [
+        29.5304,
+        46.5736
+      ],
+      [
+        13.3214,
+        80.3328
+      ],
+      [
+        22.8932,
+        35.9712
+      ],
+      [
+        59.1136,
+        31.92
+      ],
+      [
+        67.0596,
+        49.1672
+      ],
+      [
+        61.8778,
+        41.698
+      ],
+      [
+        36.3608,
+        32.5296
+      ]
+    ],
+    "projection": {
+      "type": "equirectangular",
+      "referenceLatitude": 48.0,
+      "bbox": [
+        -12,
+        36,
+        32,
+        60
+      ],
+      "scale": 20.0,
+      "offsetX": 226.17387872822835,
+      "offsetY": 1220.0
+    },
+    "projectionnote": "Distanze in unità della mappa proiettata, in linea retta: non sono chilometri né percorsi stradali."
+  }
+]
