@@ -413,7 +413,253 @@ const challenges=[
         "Provate a costruire il bordo esterno e inserire le città interne; poi confrontate con un’altra strategia."
       ]
     }
+  },
+{
+  "id": "false-partenze",
+  "name": "Quattordici false partenze",
+  "title": "Quattordici false partenze",
+  "category": "expert",
+  "points": [
+    [
+      11,
+      24
+    ],
+    [
+      28,
+      58
+    ],
+    [
+      66,
+      27
+    ],
+    [
+      89,
+      24
+    ],
+    [
+      74,
+      33
+    ],
+    [
+      10,
+      72
+    ],
+    [
+      10,
+      56
+    ],
+    [
+      27,
+      91
+    ],
+    [
+      76,
+      55
+    ],
+    [
+      49,
+      32
+    ],
+    [
+      40,
+      33
+    ],
+    [
+      57,
+      54
+    ],
+    [
+      19,
+      45
+    ],
+    [
+      49,
+      66
+    ]
+  ],
+  "description": "Cambiare partenza non basta a rendere esatta una regola.",
+  "challenge": {
+    "level": "Eccellenza",
+    "minutes": "20–30 min",
+    "mission": "Il giro proposto è il migliore tra 14 tentativi: da ciascuna città si sceglie sempre la non visitata più vicina. Battetelo e spiegate perché provare tutte le partenze non equivale a provare tutti i giri. Consegnate un percorso, la sua lunghezza e un controesempio alla pretesa di ottimalità.",
+    "hints": [
+      "Il migliore tra pochi candidati non è necessariamente il migliore tra tutti. Cercate collegamenti costosi che restano in ciascuna costruzione greedy.",
+      "Per ripetere l’esperimento, a parità di distanza scegliete la lettera precedente. Dopo aver costruito ogni ciclo, riscrivetelo partendo da A: la lunghezza non cambia."
+    ]
+  },
+  "baseline": [
+    0,
+    10,
+    9,
+    2,
+    4,
+    3,
+    8,
+    11,
+    13,
+    1,
+    12,
+    6,
+    5,
+    7
+  ]
+},
+{
+  "id": "fortezza",
+  "name": "La fortezza locale",
+  "title": "La fortezza locale",
+  "category": "expert",
+  "points": [
+    [
+      41,
+      14
+    ],
+    [
+      83,
+      78
+    ],
+    [
+      56,
+      80
+    ],
+    [
+      28,
+      59
+    ],
+    [
+      38,
+      46
+    ],
+    [
+      32,
+      16
+    ],
+    [
+      49,
+      25
+    ],
+    [
+      15,
+      19
+    ],
+    [
+      63,
+      43
+    ],
+    [
+      20,
+      42
+    ],
+    [
+      89,
+      36
+    ],
+    [
+      61,
+      58
+    ],
+    [
+      21,
+      27
+    ],
+    [
+      80,
+      42
+    ]
+  ],
+  "description": "Neppure tre collegamenti cambiati insieme aprono questa fortezza.",
+  "challenge": {
+    "level": "Eccellenza",
+    "minutes": "25–35 min",
+    "mission": "Un assistente sostiene: «Ho provato tutti i modi di togliere fino a tre collegamenti e ricongiungere i tratti in un unico giro. Nessuno accorcia il percorso: dunque è ottimo». La prima affermazione è vera per il giro proposto. La conclusione lo è? Confutatela con un giro più corto e indicate quali archi avete sostituito. Non serve trovare subito l’ottimo.",
+    "hints": [
+      "Un minimo rispetto a una famiglia di mosse non è un certificato globale. Per migliorare direttamente dovrete cambiare almeno quattro collegamenti del giro proposto.",
+      "Ricomponete più tratti insieme oppure ripartite da una struttura diversa. Potete copiare i dati per verificare una risposta AI: pretendete una sequenza completa e controllatene il costo."
+    ]
+  },
+  "baseline": [
+    0,
+    5,
+    7,
+    12,
+    9,
+    4,
+    3,
+    2,
+    1,
+    11,
+    8,
+    13,
+    10,
+    6
+  ]
+},
+{
+  "id": "giro-prova",
+  "name": "Il giro e la prova",
+  "title": "Il giro e la prova",
+  "category": "expert",
+  "points": [
+    [
+      20,
+      20
+    ],
+    [
+      40,
+      20
+    ],
+    [
+      60,
+      20
+    ],
+    [
+      80,
+      20
+    ],
+    [
+      20,
+      40
+    ],
+    [
+      40,
+      40
+    ],
+    [
+      60,
+      40
+    ],
+    [
+      80,
+      40
+    ],
+    [
+      20,
+      60
+    ],
+    [
+      40,
+      60
+    ],
+    [
+      60,
+      60
+    ],
+    [
+      80,
+      60
+    ]
+  ],
+  "description": "Qui non vince chi indovina: vince chi sa dimostrare.",
+  "challenge": {
+    "level": "Eccellenza",
+    "minutes": "15–25 min",
+    "mission": "Trovate un giro ottimo senza aprire il confronto. Accompagnatelo con una prova valida per tutti i percorsi: stabilite una lunghezza sotto la quale nessun giro può scendere e costruite un giro che raggiunga proprio quel limite. Due gruppi possono avere ordini diversi ed essere entrambi corretti?",
+    "hints": [
+      "Le città formano una griglia con passo 20. Qual è la distanza minima fra due città distinte? Quanti collegamenti ha un giro completo?",
+      "Ogni giro ha 12 collegamenti, ciascuno lungo almeno 20. Cercate un unico ciclo che usi solo vicini orizzontali o verticali, senza ripetere città."
+    ]
   }
+}
 ];
 if(typeof module!=='undefined'&&module.exports)module.exports=challenges;else root.TSP.maps.push(...challenges);
 })(typeof globalThis!=='undefined'?globalThis:this);

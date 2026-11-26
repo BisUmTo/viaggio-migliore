@@ -13,8 +13,8 @@ const title=m=>m.title||m.name.replace(/^\d+ · /,'');
 const cityName=i=>map.names?.[i]||('Città '+label(i));
 const cityText=(m,i)=>label(i)+(m.names?' · '+m.names[i]:'');
 const tours=new Map();const optimum=m=>{if(!tours.has(m.id))tours.set(m.id,solve(m.points));return tours.get(m.id);};
-for(const category of ['world','lesson','advanced']){
- const group=document.createElement('optgroup');group.label=category==='world'?'I viaggi':category==='advanced'?'Sfide avanzate':'Le sfide della lezione';
+for(const category of ['world','lesson','advanced','expert']){
+ const group=document.createElement('optgroup');group.label=category==='world'?'I viaggi':category==='advanced'?'Sfide avanzate':category==='expert'?'Per chi vuole di più':'Le sfide della lezione';
  maps.filter(m=>(m.category||'lesson')===category).forEach((m,i)=>{
   const o=document.createElement('option');o.value=m.id;o.textContent=m.name;group.append(o);
   const b=document.createElement('button');b.className='map-choice';b.dataset.map=m.id;b.setAttribute('aria-pressed','false');
@@ -62,7 +62,7 @@ function showAttempts(){
  $('saved-count').textContent=attempts.length;$('attempts').replaceChildren();if(!attempts.length){const p=document.createElement('li');p.className='empty-state';p.textContent='Il primo giro è ancora da scrivere. Completa una mappa, poi premi «Salva tentativo».';$('attempts').append(p);return;}
  [...attempts].reverse().forEach(a=>{const m=attemptMap(a),li=document.createElement('li'),b=document.createElement('strong'),s=document.createElement('small'),q=document.createElement('small');b.textContent=title(m)+' · '+fmt(length(m.points,a.route))+' unità';s.textContent=a.route.map(label).join(' → ')+' → A';q.textContent=a.revealed?'Dopo aver visto l’ottimo su questa mappa':'Prima di vedere l’ottimo su questa mappa';li.append(b,s,q);const d=document.createElement('details'),summary=document.createElement('summary'),p=document.createElement('p');summary.textContent='Strategia di questo tentativo';p.textContent=a.strategy||'Nessuna strategia annotata al momento del salvataggio.';d.append(summary,p);li.append(d);$('attempts').append(li);});
 }
-function changeMap(next){if(next===map.id)return;persist();map=maps.find(m=>m.id===next)||map;route=[...drafts[map.id]];revealed=false;$('comparison').open=false;if(map.challenge)$('advanced-index').open=true;msg(route.length>1?'Giro precedente recuperato.':'');try{history.replaceState(null,'','?mappa='+map.id);}catch{}persist();render();}
+function changeMap(next){if(next===map.id)return;persist();map=maps.find(m=>m.id===next)||map;route=[...drafts[map.id]];revealed=false;$('comparison').open=false;if(map.challenge)$(map.category==='expert'?'expert-index':'advanced-index').open=true;msg(route.length>1?'Giro precedente recuperato.':'');try{history.replaceState(null,'','?mappa='+map.id);}catch{}persist();render();}
 $('map').addEventListener('change',()=>changeMap($('map').value));
 $('undo').addEventListener('click',()=>{if(route.length>1)route.pop();revealed=false;msg('');persist();render();});
 $('reset').addEventListener('click',async()=>{if(!await ask('Ricominciare questo giro da A? I tentativi già salvati e le altre mappe restano disponibili.'))return;route=[0];revealed=false;msg('');persist();render();});
@@ -70,7 +70,7 @@ $('save').addEventListener('click',()=>{if(!validTour(map.points,route))return;c
 $('reveal').addEventListener('click',async()=>{if(!validTour(map.points,route))return;if(!await ask('Avete annotato la strategia e confrontato il giro con il gruppo? Mostrare ora l’ottimo?'))return;revealed=true;seen[map.id]=true;persist();render();});
 $('share').addEventListener('click',async()=>{const u=new URL(location.href);u.search='?mappa='+map.id;u.hash='';try{await navigator.clipboard.writeText(u.href);msg('Link della mappa copiato.');$('share').textContent='Link copiato';setTimeout(()=>$('share').textContent='Copia link',2500);}catch{msg('Link della mappa: '+u.href);showView('map');}});
 $('download').addEventListener('click',()=>{const lines=['IL VIAGGIO MIGLIORE - SCHEDA DEL GRUPPO','Gruppo: '+($('group').value||'Senza nome'),'','STRATEGIA ATTUALE',$('strategy').value||'(da completare)','','TENTATIVI SALVATI'];attempts.forEach((a,i)=>{const m=attemptMap(a);lines.push('\n'+(i+1)+'. '+m.name,a.route.map(j=>cityText(m,j)).join(' → ')+' → '+cityText(m,0),'Distanza: '+fmt(length(m.points,a.route))+' unità della mappa',a.revealed?'Dopo aver visto l’ottimo':'Prima di vedere l’ottimo','Strategia del tentativo: '+(a.strategy||'(non annotata)'));});lines.push('\nGIRO CORRENTE ('+map.name+')',route.map(j=>cityText(map,j)).join(' → ')+(validTour(map.points,route)?' → '+cityText(map,0):' [incompleto]'),'\nCHE COSA ABBIAMO SCOPERTO',$('reflection').value||'(da completare)');const u=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'})),a=document.createElement('a');a.href=u;a.download='scheda-viaggio-migliore.txt';a.hidden=true;document.body.append(a);a.click();$('export-text').value=lines.join('\n');$('export-fallback').hidden=false;setTimeout(()=>{a.remove();URL.revokeObjectURL(u);},1000);});
-if(map.challenge)$('advanced-index').open=true;render();showAttempts();persist();
+if(map.challenge)$(map.category==='expert'?'expert-index':'advanced-index').open=true;render();showAttempts();persist();
 
 function renderChallenge(full){
  const panel=$('challenge');panel.hidden=!map.challenge;if(!map.challenge)return;
